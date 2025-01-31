@@ -1,0 +1,27 @@
+{
+    "name": "企业微信机器人通知插件",
+    "url": "https://github.com/pama-lee/posthog-wecom-plugin",
+    "description": "将 PostHog 的告警通知发送到企业微信群机器人",
+    "main": "index.ts",
+    "config": [
+        {
+            "markdown": "## 企业微信机器人配置\n在企业微信群中添加机器人，获取 Webhook URL"
+        },
+        {
+            "key": "webhookUrl",
+            "name": "Webhook URL",
+            "type": "string",
+            "hint": "企业微信群机器人的 Webhook 地址",
+            "required": true,
+            "secret": true
+        },
+        {
+            "key": "messageTemplate",
+            "name": "消息模板",
+            "type": "multiline",
+            "hint": "消息模板，支持变量替换。可用变量：${alert_name}, ${description}, ${insight_name}, ${dashboard_name}",
+            "default": "## PostHog 告警通知\n\n**告警名称**: ${alert_name}\n**触发时间**: ${trigger_time}\n**详细信息**: ${description}",
+            "required": false
+        }
+    ]
+} 
